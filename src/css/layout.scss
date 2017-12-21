@@ -62,7 +62,89 @@ body {
 }
 
 .section2 {
-    background-color: $green;
+    background-color: $white;
+    .content {
+        height: 100%;
+        .letter {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: white;
+            z-index: 1;
+            overflow: hidden;
+            -webkit-transition: .4s .2s;
+            -moz-transition: .4s .2s;
+            transition: .4s .2s;
+            .letter-border-top {
+                height: .25rem;
+                width: 100%;
+                background: repeating-linear-gradient(-45deg, $red, $red .2rem, transparent .2rem, transparent .45rem);
+            }
+            .letter-border-left {
+                position: absolute;
+                height: 100vh;
+                width: .25rem;
+                background: repeating-linear-gradient(-45deg, #D04858, #D04858 0.2rem, transparent 0.2rem, transparent 0.45rem);
+                transform: rotate(0deg);
+                top: 0;
+                left: 0;
+            }
+            .letter-border-right {
+                position: absolute;
+                height: 100vh;
+                width: .25rem;
+                background: repeating-linear-gradient(-45deg, #D04858, #D04858 0.2rem, transparent 0.2rem, transparent 0.45rem);
+                transform: rotate(0deg);
+                top: 0;
+                right: 0;
+            }
+            .letter-border-bottom {
+                position: absolute;
+                bottom: 0;
+                height: .25rem;
+                width: 100%;
+                background: repeating-linear-gradient(-45deg, $red, $red .2rem, transparent .2rem, transparent .45rem);
+            }
+            .letter-title {
+                margin-top: .25rem;
+                margin-left: .125rem;
+                height: .25rem;
+                width: 40%;
+                background: $red;
+            }
+            .letter-context {
+                margin-top: .25rem;
+                margin-left: .125rem;
+                height: .25rem;
+                width: 20%;
+                background: $red;
+            }
+            .letter-stamp {
+                border-radius: 100%;
+                height: 1rem;
+                width: 1rem;
+                background: #D04858;
+                opacity: 0.3;
+                position: absolute;
+                bottom: .5rem;
+                right: .5rem;
+                @include font-dpr(14px);
+                line-height: 1rem;
+                text-align: center;
+                font-family: 'Pacifico', cursive !important;
+            }
+            .letter-content {
+                color: $green;
+                @include font-dpr(14px);
+                p {
+                    margin: 0;
+                    padding: .45rem;
+                    text-decoration: underline;
+                    text-indent: .75rem;
+                }
+            }
+        }
+    }
 }
 
 .section3 {
@@ -71,8 +153,8 @@ body {
 
 .image {
     position: absolute;
-    width: 200px;
-    height: 200px;
+    width: 5rem;
+    height: 5rem;
     cursor: pointer;
     animation: bounceIn 1s;
     .trigger-button {
@@ -80,8 +162,8 @@ body {
         height: $lettle-button-height;
         background-color: $green;
         @include circle;
-        left:calc(100px - (#{$lettle-button-width} / 2));
-        top:calc(100px - (#{$lettle-button-height} / 2));
+        left:calc(2.5rem - (#{$lettle-button-width} / 2));
+        top:calc(2.5rem - (#{$lettle-button-height} / 2));
         position: absolute;
         z-index: 9;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
@@ -90,8 +172,8 @@ body {
 
 .animated-mail {
     position: absolute;
-    height: 150px;
-    width: 200px;
+    height: 3.75rem;
+    width: 5rem;
     -webkit-transition: .4s;
     -moz-transition: .4s;
     transition: .4s;
@@ -103,18 +185,18 @@ body {
     width: 0;
     height: 0;
     border-style: solid;
-    border-width: 0 0 100px 200px;
+    border-width: 0 0 2.5rem 5rem;
     border-color: transparent transparent #e95f55 transparent;
     z-index: 2;
 }
 
 .animated-mail .top-fold {
     position: absolute;
-    top: 50px;
+    top: 1.25rem;
     width: 0;
     height: 0;
     border-style: solid;
-    border-width: 50px 100px 0 100px;
+    border-width: 1.25rem 2.5rem 0 2.5rem;
     -webkit-transform-origin: 50% 0%;
     -webkit-transition: transform .4s .4s, z-index .2s .4s;
     -moz-transform-origin: 50% 0%;
@@ -128,8 +210,8 @@ body {
 .animated-mail .back-fold {
     position: absolute;
     bottom: 0;
-    width: 200px;
-    height: 100px;
+    width: 5rem;
+    height: 2.5rem;
     background: #cf4a43;
     z-index: 0;
 }
@@ -140,63 +222,75 @@ body {
     width: 0;
     height: 0;
     border-style: solid;
-    border-width: 50px 0 50px 100px;
+    border-width: 1.25rem 0 1.25rem 2.5rem;
     border-color: transparent transparent transparent #e15349;
     z-index: 2;
 }
 
 .animated-mail .letter {
-    left: 20px;
+    left: .5rem;
     bottom: 0px;
     position: absolute;
-    width: 160px;
-    height: 60px;
+    width: 4rem;
+    height: 1.5rem;
     background: white;
     z-index: 1;
     overflow: hidden;
     -webkit-transition: .4s .2s;
     -moz-transition: .4s .2s;
     transition: .4s .2s;
+    opacity: 0;
 }
 
 .animated-mail .letter .letter-border {
-    height: 10px;
+    height: .25rem;
     width: 100%;
-    background: repeating-linear-gradient(-45deg, $red, $red 8px, transparent 8px, transparent 18px);
+    background: repeating-linear-gradient(-45deg, $red, $red .2rem, transparent .2rem, transparent .45rem);
 }
 
 .animated-mail .letter .letter-title {
-    margin-top: 10px;
-    margin-left: 5px;
-    height: 10px;
+    margin-top: .25rem;
+    margin-left: .125rem;
+    height: .25rem;
     width: 40%;
     background: $red;
 }
 
 .animated-mail .letter .letter-context {
-    margin-top: 10px;
-    margin-left: 5px;
-    height: 10px;
+    margin-top: .25rem;
+    margin-left: .125rem;
+    height: .25rem;
     width: 20%;
     background: $red;
 }
 
+.animated-mail .letter .letter-txt {
+    color: $red;
+    margin-top: .25rem;
+    padding-left: .125rem;
+    position: absolute;
+    @include font-dpr(10px);
+    width: 100%;
+    text-align: center;
+    font-family: 'Pacifico', cursive !important;
+}
+
 .animated-mail .letter .letter-stamp {
-    margin-top: 30px;
-    margin-left: 120px;
+    margin-top: .75rem;
+    margin-left: 3rem;
     border-radius: 100%;
-    height: 30px;
-    width: 30px;
+    height: .75rem;
+    width: .75rem;
     background: $red;
     opacity: 0.3;
 }
 
 .shadow {
     position: absolute;
-    top: 200px;
+    top: 5rem;
     left: 50%;
-    width: 400px;
-    height: 30px;
+    width: 10rem;
+    height: .75rem;
     transition: .4s;
     transform: translateX(-50%);
     -webkit-transition: .4s;
@@ -224,11 +318,12 @@ body {
 }
 
 .image.open .animated-mail .letter {
-    height: 180px;
+    height: 4.5rem;
+    opacity: 1;
 }
 
 .image.open .shadow {
-    width: 250px;
+    width: 6.25rem;
 }
 
 @keyframes bounceIn {
