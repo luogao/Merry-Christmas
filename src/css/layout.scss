@@ -69,12 +69,21 @@ body {
             position: absolute;
             width: 100%;
             height: 100%;
-            background: white;
+            background: $white;
             z-index: 1;
             overflow: hidden;
             -webkit-transition: .4s .2s;
             -moz-transition: .4s .2s;
             transition: .4s .2s;
+            .flake {
+                position: absolute;
+                color: $lightblue;
+                text-shadow: 0 3px 10px rgba($color: #000000, $alpha: 0.3)
+            }
+            [class^="letter-border"] {
+                box-shadow: $lettle-border-shadow;
+                z-index: 9999;
+            }
             .letter-border-top {
                 height: .25rem;
                 width: 100%;
@@ -124,7 +133,7 @@ body {
                 height: 1rem;
                 width: 1rem;
                 background: #D04858;
-                opacity: 0.3;
+                opacity: 0.8;
                 position: absolute;
                 bottom: .5rem;
                 right: .5rem;
@@ -132,15 +141,60 @@ body {
                 line-height: 1rem;
                 text-align: center;
                 font-family: 'Pacifico', cursive !important;
+                animation: fadeInRight .5s;
+                display: none;
             }
             .letter-content {
                 color: $green;
-                @include font-dpr(14px);
+                @include font-dpr(16px);
                 p {
                     margin: 0;
                     padding: .45rem;
                     text-decoration: underline;
                     text-indent: .75rem;
+                    line-height: .7rem;
+                    word-wrap: break-word;
+                    text-decoration-skip: ink;
+                    padding-top: 1.7rem;
+                    position: relative;
+                    font-family: -apple-system, "Helvetica Neue", Helvetica, "Nimbus Sans L", Arial, "Liberation Sans", "PingFang SC", "Hiragino Sans GB", "Source Han Sans CN", "Source Han Sans SC", "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Zen Hei", "ST Heiti", SimHei, "WenQuanYi Zen Hei Sharp", sans-serif;
+                    .flash {
+                        animation: flash 1s infinite;
+                        padding-left: 10px;
+                    }
+                }
+            }
+            #dear {
+                display: none;
+                color: $red;
+                font-family: 'Pacifico', cursive !important;
+                position: absolute;
+                left: .375rem;
+                top: .625rem;
+                transform: rotate(-20deg);
+                @include font-dpr(24px);
+                transition: all .6s cubic-bezier(.45, -1.01, .11, 1.69);
+                -webkit-animation-name: popInLeft;
+                animation-name: popInLeft;
+                -webkit-animation-duration: 0.9s;
+                animation-duration: 0.9s;
+                -webkit-backface-visibility: hidden;
+                backface-visibility: hidden;
+                &.finish {
+                    transform: none;
+                }
+            }
+            .img-04 {
+                margin: auto;
+                display: none;
+                z-index: 0;
+                animation: fadeInUp 1s;
+                position: relative;
+                &.swing {
+                    transform-origin: bottom center;
+                    animation-name: swing;
+                    animation-duration: 2.5s;
+                    animation-iteration-count: infinite;
                 }
             }
         }
@@ -324,36 +378,4 @@ body {
 
 .image.open .shadow {
     width: 6.25rem;
-}
-
-@keyframes bounceIn {
-    from,
-    20%,
-    40%,
-    60%,
-    80%,
-    to {
-        animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
-    }
-    0% {
-        opacity: 0;
-        transform: scale3d(.3, .3, .3);
-    }
-    20% {
-        transform: scale3d(1.1, 1.1, 1.1);
-    }
-    40% {
-        transform: scale3d(.9, .9, .9);
-    }
-    60% {
-        opacity: 1;
-        transform: scale3d(1.03, 1.03, 1.03);
-    }
-    80% {
-        transform: scale3d(.97, .97, .97);
-    }
-    to {
-        opacity: 1;
-        transform: scale3d(1, 1, 1);
-    }
 }

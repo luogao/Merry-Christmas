@@ -6,6 +6,7 @@ $lettle-width: 9rem;
 $lettle-height: 5.881rem;
 $lettle-button-width: 0.5rem;
 $lettle-button-height: 0.5rem;
+$lettle-border-shadow:0px 0px 11px rgba(207, 72, 87, 0.39);
 @mixin font-dpr($font-size) {
     font-size: $font-size;
     [data-dpr="2"] & {
@@ -27,5 +28,6 @@ $lettle-button-height: 0.5rem;
         height: 4rem;
         background-size: cover;
         position: absolute;
+        background-position: center;
     }
 }
