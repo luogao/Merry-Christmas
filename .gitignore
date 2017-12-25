@@ -12,6 +12,7 @@
 # development
 /.cache
 /dist
+/src/img
 
 # misc
 .DS_Store
