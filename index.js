@@ -1,12 +1,8 @@
 import Swiper from 'swiper';
 import dynamicTxtFn from './src/js/dynamicTxt'
 import snow from './src/js/snow'
-
 import './node_modules/swiper/dist/css/swiper.min.css'
-import './src/css/common.css'
-import './src/css/font.css'
 import './src/css/layout.scss'
-import './src/css/animate.css'
 
 var timer = setInterval(function() {
     if (document.readyState === "complete") {
